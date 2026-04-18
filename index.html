@@ -22,7 +22,7 @@
   --font-mono:'DM Mono',monospace;
 }
 
-html,body{height:100%;overflow:hidden;}
+html,body{height:100%;}body{overflow-x:hidden;}
 
 body{
   background:var(--paper);
@@ -76,7 +76,9 @@ body::after{
   overflow:hidden;
   box-shadow:8px 8px 0 var(--ink);
   animation:wrapperIn 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
-  max-height:90vh;
+  max-height:95vh;
+  max-width:calc(100vw - 2rem);
+  overflow-y:auto;
 }
 @keyframes wrapperIn{
   from{opacity:0;transform:translateY(30px) scale(0.96);}
@@ -214,6 +216,7 @@ body::after{
   justify-content:center;
   background:var(--paper);
   position:relative;
+  overflow-y:auto;
 }
 
 .form-header{margin-bottom:2rem;}
@@ -438,12 +441,41 @@ body::after{
 }
 
 @media(max-width:820px){
-  .wrapper{grid-template-columns:1fr;max-width:420px;}
-  .left-panel{padding:2rem;min-height:auto;}
-  .left-headline{font-size:1.8rem;}
-  .right-panel{padding:2rem;}
-  body{align-items:flex-start;overflow:auto;padding:2rem 1rem;}
-  html,body{height:auto;}
+  .wrapper{
+    grid-template-columns:1fr;
+    max-width:100%;
+    width:calc(100% - 2rem);
+    margin:1rem;
+    border-radius:16px;
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  .left-panel{padding:1.75rem;min-height:auto;}
+  .left-headline{font-size:1.6rem;}
+  .left-sub{font-size:0.82rem;}
+  .mascot-wrap{padding:0.75rem 1rem;}
+  .mascot-face{width:44px;height:44px;font-size:1.8rem;}
+  .social-btn{padding:8px 6px;font-size:0.72rem;gap:4px;}
+  .right-panel{padding:1.75rem;}
+  .form-title{font-size:1.5rem;}
+  body{align-items:flex-start;overflow:auto;padding:1rem 0;justify-content:center;}
+  html,body{height:auto;min-height:100vh;}
+}
+
+@media(max-width:480px){
+  .wrapper{width:calc(100% - 1.5rem);margin:0.75rem;}
+  .left-panel{padding:1.25rem;}
+  .right-panel{padding:1.25rem;}
+  .left-headline{font-size:1.4rem;letter-spacing:-0.5px;}
+  .left-logo{font-size:0.68rem;}
+  .social-row{gap:0.4rem;}
+  .social-btn{flex-direction:column;gap:2px;font-size:0.68rem;padding:8px 4px;}
+  .tabs{margin-bottom:1.5rem;}
+  .form-body{gap:0.9rem;}
+  .field input{padding:10px 12px;font-size:0.88rem;}
+  .submit-btn{padding:12px;font-size:0.88rem;}
+  .payment-methods{flex-wrap:wrap;}
+  .pay-method{flex:1;min-width:70px;text-align:center;font-size:0.72rem;padding:8px 6px;}
+  .mascot-wrap{display:none;}
 }
 </style>
 </head>
